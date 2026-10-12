@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haley & Marcus | Istria 2027</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --olive: #5b694a;
+            --sand: #e6dfd3;
+            --terracotta: #b75d46;
+            --dark-gray: #333333;
+            --bg-color: #faf8f5;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--dark-gray);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 400;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(250, 248, 245, 0.95);
+            padding: 15px 0;
+            text-align: center;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        nav a {
+            text-decoration: none;
+            color: var(--dark-gray);
+            margin: 0 15px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        nav a:hover { color: var(--terracotta); }
+
+        /* Hero Section */
+        header {
+            height: 100vh;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('homepagecelebrateslider7-552.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        header p.intro { font-size: 1.2rem; letter-spacing: 2px; text-transform: uppercase; }
+        header h1 { font-size: 5rem; margin: 10px 0; font-style: italic; }
+        header p.details { font-size: 1.2rem; margin-bottom: 30px; }
+
+        /* Countdown */
+        .countdown {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .time-box {
+            background-color: rgba(255,255,255,0.2);
+            padding: 15px 20px;
+            border-radius: 5px;
+            backdrop-filter: blur(5px);
+        }
+        .time-box span { display: block; font-size: 2rem; font-family: 'Playfair Display', serif; }
+        .time-box p { margin: 0; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--terracotta);
+            color: white;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: background 0.3s;
+        }
+        .btn:hover { background-color: #9a4d38; }
+
+        /* Sections */
+        section {
+            padding: 80px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .section-title { font-size: 3rem; margin-bottom: 10px; color: var(--olive); }
+        .section-subtitle { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; color: #777; margin-bottom: 40px; }
+        
+        .divider { width: 50px; height: 1px; background-color: var(--terracotta); margin: 40px auto; }
+
+        /* Images */
+        .img-fluid { width: 100%; height: auto; border-radius: 4px; margin-bottom: 30px; }
+        .img-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px; }
+
+        /* Text layout */
+        .text-block { text-align: left; margin-bottom: 30px; }
+        .text-block h3 { color: var(--olive); font-size: 1.8rem; margin-bottom: 5px; }
+        .text-block span.time { font-style: italic; color: #777; display: block; margin-bottom: 10px; }
+
+        /* RSVP Form */
+        form { background-color: var(--sand); padding: 40px; border-radius: 5px; text-align: left; }
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            background: #fff;
+            font-family: 'Lato', sans-serif;
+            box-sizing: border-box;
+        }
+        button[type="submit"] {
+            background-color: var(--olive);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            width: 100%;
+        }
+        button[type="submit"]:hover { background-color: #4a563c; }
+
+        /* FAQ & Registry */
+        .faq-item { text-align: left; margin-bottom: 25px; }
+        .faq-item h3 { font-size: 1.3rem; margin-bottom: 5px; }
+        .registry-links a { display: inline-block; margin: 10px 15px; color: var(--olive); text-decoration: underline; font-family: 'Playfair Display', serif; font-size: 1.2rem; }
+
+        footer { text-align: center; padding: 50px 20px; background-color: var(--dark-gray); color: var(--sand); }
+        footer h2 { font-style: normal; letter-spacing: 5px; }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 3.5rem; }
+            .img-grid { grid-template-columns: 1fr; }
+            nav { display: none; /* Can add a hamburger menu later for mobile */ }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#story">Our Story</a>
+        <a href="#weekend">The Weekend</a>
+        <a href="#travel">Travel & Stay</a>
+        <a href="#rsvp">RSVP</a>
+        <a href="#registry">Registry</a>
+        <a href="#faq">FAQ</a>
+    </nav>
+
+    <header>
+        <p class="intro">Together with their families</p>
+        <h1>Haley & Marcus</h1>
+        <p class="details">are getting married in the hills of Istria<br><br>San Canzian Hotel & Residences · Croatia<br>October 14–17, 2027</p>
+        
+        <div class="countdown" id="countdown">
+            <div class="time-box"><span id="days">0</span><p>Days</p></div>
+            <div class="time-box"><span id="hours">0</span><p>Hours</p></div>
+            <div class="time-box"><span id="minutes">0</span><p>Minutes</p></div>
+        </div>
+
+        <a href="#rsvp" class="btn">Kindly Reply</a>
+    </header>
+
+    <section id="story">
+        <p class="section-subtitle">Ljubav · Love</p>
+        <h2 class="section-title">Our <em>story</em></h2>
+        
+        <img src="0y9a8125-sancanzianxagisibiga-1262.jpg" alt="Dining Table" class="img-fluid">
+        
+        <div class="text-block">
+            <h3>How we met</h3>
+            <p>Haley and Marcus, tell your guests where it started: the city, the year, and the first thing you noticed about each other.</p>
+        </div>
+        <div class="text-block">
+            <h3>The question</h3>
+            <p>The proposal story goes here. Two or three sentences is plenty.</p>
+        </div>
+        <div class="text-block">
+            <h3>Why Istria</h3>
+            <p>Rolling hills, olive groves and vineyards, with stone villages on every ridge. We wanted to celebrate with everyone we love somewhere that feels like a long, golden exhale.</p>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section id="weekend">
+        <p class="section-subtitle">Program</p>
+        <h2 class="section-title">The <em>weekend</em></h2>
+        <p>Four gatherings over the weekend of October 14–17, 2027, all at San Canzian. Times will be confirmed here as soon as they are final.</p>
+        
+        <div class="img-grid">
+            <img src="homepagecelebrateslider8-553.jpg" alt="Indoor Setup" class="img-fluid">
+            <img src="03dinner-1169.jpg" alt="Plated Dinner" class="img-fluid">
+        </div>
+
+        <div class="text-block">
+            <h3>Welcome Drinks</h3>
+            <span class="time">Day One · Time to be announced</span>
+            <p>Golden-hour aperitivo among the olive trees. Come as you land, relaxed and ready to celebrate.</p>
+        </div>
+        <div class="text-block">
+            <h3>The Ceremony</h3>
+            <span class="time">Day Two · Time to be announced</span>
+            <p>We say our vows with the Istrian hills behind us. Please arrive 30 minutes early and find a seat.</p>
+        </div>
+        <div class="text-block">
+            <h3>Dinner & Dancing</h3>
+            <span class="time">Day Two · Time to be announced</span>
+            <p>A long table, local wine, and a dance floor under the stars.</p>
+        </div>
+        <div class="text-block">
+            <h3>Farewell Brunch</h3>
+            <span class="time">Day Three · Time to be announced</span>
+            <p>Coffee, pastries, and one more round of hugs before everyone heads home.</p>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section id="travel">
+        <p class="section-subtitle">Getting here</p>
+        <h2 class="section-title">Travel & <em>stay</em></h2>
+        
+        <img src="dji202410211719090453d-1512.jpg" alt="Aerial Pool View" class="img-fluid">
+
+        <div class="text-block">
+            <h3>Flights</h3>
+            <p>San Canzian is in Buje, in northwestern Istria. The closest airports are Trieste (TRS) and Pula (PUY), with Venice (VCE) and Zagreb (ZAG) as larger options. We will confirm the best routes soon.</p>
+        </div>
+        <div class="text-block">
+            <h3>Where to stay</h3>
+            <p>We are arranging a room block at the hotel for October 14–17, 2027, with a group rate. Booking details and the code will appear here.</p>
+        </div>
+        <div class="text-block">
+            <h3>Getting around</h3>
+            <p>We will share shuttle times for the weekend, so there is no need to rent a car just for the wedding. If you plan to explore Istria afterward, a rental car is the easiest way to see the hill towns.</p>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section id="rsvp">
+        <p class="section-subtitle">Kindly reply</p>
+        <h2 class="section-title">R<em>s</em>vp</h2>
+        <p style="margin-bottom: 30px;">Please let us know by the reply-by date, to be announced. One reply per household is perfect.</p>
+        
+        <img src="dsc5819-1195.jpg" alt="Food Spread" class="img-fluid">
+
+        <form action="#" method="POST">
+            <label>Full name(s)</label>
+            <input type="text" placeholder="John & Jane Doe" required>
+            
+            <label>Email</label>
+            <input type="email" placeholder="email@example.com" required>
+            
+            <label>Will you join us?</label>
+            <select>
+                <option>Joyfully accepts</option>
+                <option>Regretfully declines</option>
+            </select>
+            
+            <label>Number of guests in your party</label>
+            <input type="number" min="0" max="10" placeholder="2">
+            
+            <label>Allergies or dietary needs</label>
+            <input type="text" placeholder="e.g. Vegetarian, Gluten-free">
+            
+            <label>A note for the couple</label>
+            <textarea rows="4" placeholder="Can't wait!"></textarea>
+            
+            <p style="font-size: 0.8rem; font-style: italic; color: #666;">Replies cannot be saved from this view yet. This form is a placeholder.</p>
+            <button type="button">Hvala, Thank You</button>
+        </form>
+    </section>
+
+    <div class="divider"></div>
+
+    <section id="registry">
+        <p class="section-subtitle">With gratitude</p>
+        <h2 class="section-title">The <em>registry</em></h2>
+        <p>Your presence in Croatia is the gift. If you would like to give something, these are our favorite ways.</p>
+        <div class="registry-links">
+            <a href="#">Honeymoon fund</a>
+            <a href="#">Home registry</a>
+            <a href="#">Charity in our name</a>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section id="faq">
+        <p class="section-subtitle">Good to know</p>
+        <h2 class="section-title">Questions, <em>answered</em></h2>
+        
+        <img src="0y9a6707-sancanzianxagisibiga-1558.jpg" alt="Details" class="img-fluid" style="max-width: 500px; margin: 0 auto 40px auto; display: block;">
+
+        <div class="faq-item">
+            <h3>What should I wear?</h3>
+            <p>Think elegant autumn: cocktail or formal, with a wrap or jacket for the evening. The ceremony may be on stone or grass, so block heels and flats are kinder than stilettos. Soft earth tones such as olive, sand and terracotta will look lovely in the Istrian light. Final dress code to be confirmed.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Do I need a passport or visa?</h3>
+            <p>Everyone needs a valid passport. Croatia is in the EU and the Schengen Area, and entry rules depend on your citizenship. Please check the official requirements for your country well before you book.</p>
+        </div>
+        <div class="faq-item">
+            <h3>What currency do they use?</h3>
+            <p>Croatia uses the euro. Cards are widely accepted, and small cash is handy for cafes, taxis and tips.</p>
+        </div>
+        <div class="faq-item">
+            <h3>What will the weather be like?</h3>
+            <p>Mid-October in Istria is usually mild, with pleasant afternoons, cooler evenings in the hills and a chance of rain. Bring a jacket, a light layer and a small umbrella.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Can I bring a plus-one or children?</h3>
+            <p>Your invitation names everyone we have saved a seat for. Use the RSVP form to tell us how many are in your party, and write to us if you have questions about little ones.</p>
+        </div>
+        <div class="faq-item">
+            <h3>What language is spoken?</h3>
+            <p>Croatian, with Italian widely spoken in Istria and plenty of English at the hotel. A cheerful <em>hvala</em> (thank you) and <em>molim</em> (please) will go a long way.</p>
+        </div>
+    </section>
+
+    <footer>
+        <h2>H & M</h2>
+        <p>Istria · Croatia · With love</p>
+    </footer>
+
+    <script>
+        // Set the date we're counting down to (Oct 14, 2027)
+        var countDownDate = new Date("Oct 14, 2027 15:00:00").getTime();
+
+        var x = setInterval(function() {
+            var now = new Date().getTime();
+            var distance = countDownDate - now;
+
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+            document.getElementById("days").innerHTML = days;
+            document.getElementById("hours").innerHTML = hours;
+            document.getElementById("minutes").innerHTML = minutes;
+
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "We are married!";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
